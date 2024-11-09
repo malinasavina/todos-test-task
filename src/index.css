@@ -60,7 +60,7 @@ body {
   background-color: #F6F6F6;
 } */
 
-.todos__input-area {
+.todos__form {
   display: flex;
   align-items: center;
 }

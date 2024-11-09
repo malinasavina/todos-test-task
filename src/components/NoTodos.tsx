@@ -1,4 +1,4 @@
-export default function NoTasks() {
+export default function NoTodos() {
     return(
         <div className="todos__no-tasks">
             <div className="todos__no-tasks-icon"></div>
