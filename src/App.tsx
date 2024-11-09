@@ -1,10 +1,11 @@
-import React from 'react';
 import './App.css';
+import Todos from './components/Todos';
 
 function App() {
   return (
-    <div>
-
+    <div className="body__inner">
+      <h1 className="title">todos</h1>
+      <Todos />
     </div>
   );
 }
