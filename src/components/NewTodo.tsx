@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-export default function NewTask() {
+export default function NewTodo() {
     const taskTextInputRef = useRef<HTMLInputElement>(null);
 
     function submitHandler(event: React.FormEvent) {
@@ -11,8 +11,6 @@ export default function NewTask() {
         if (enteredText.trim().length === 0) {
             return;
         }
-
-        
     }
 
     return (

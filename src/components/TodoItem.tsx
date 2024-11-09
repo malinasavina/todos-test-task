@@ -1,6 +1,6 @@
 import React from 'react';
 
- const Task: React.FC<{taskText: string, key: string}> = (props) => {
+ const TodoItem: React.FC<{taskText: string, key: string}> = (props) => {
     return(
         <li className="todos__task" key={props.key}>
             <label className="todos__task-label">
@@ -12,4 +12,4 @@ import React from 'react';
     )
 }
 
-export default Task;
+export default TodoItem;

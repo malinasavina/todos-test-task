@@ -1,8 +1,7 @@
-import Input from './Input';
-import TaskList from './TaskList';
+import NewTodo from './NewTodo';
+import TodoList from './TodoList';
 import Footer from './Footer';
 import Todo from '../models/todo';
-import todo from "../models/todo";
 
 export default function Todos() {
     const todos = [
@@ -12,8 +11,8 @@ export default function Todos() {
 
     return (
         <div className="todos">
-            <Input />
-            <TaskList items={todos} />
+            <NewTodo />
+            <TodoList items={todos} />
             <Footer />
         </div>
     )
