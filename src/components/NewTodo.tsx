@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-export default function NewTodo() {
+const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
     const taskTextInputRef = useRef<HTMLInputElement>(null);
 
     function submitHandler(event: React.FormEvent) {
@@ -11,6 +11,8 @@ export default function NewTodo() {
         if (enteredText.trim().length === 0) {
             return;
         }
+
+        props.onAddTodo(enteredText);
     }
 
     return (
@@ -21,3 +23,5 @@ export default function NewTodo() {
         </form>
     )
 }
+
+export default NewTodo;
