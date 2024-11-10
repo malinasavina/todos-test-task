@@ -22,7 +22,7 @@ export default function Todos() {
         <div className="todos">
             <NewTodo onAddTodo={addTodoHandler} />
             {todos.length === 0 ? <NoTodos /> : <TodoList items={todos} />}
-            <Footer />
+            <Footer itemsCount={todos.length} />
         </div>
     )
 }

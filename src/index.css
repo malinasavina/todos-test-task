@@ -5,11 +5,14 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   min-width: 320px;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #f5f5f5;
   font-family: "Roboto", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -278,7 +281,6 @@ body {
   font-weight: 300;
   color: #4d4d4d;
   background-color: #e9d9d8;
-  box-shadow: 0px -2px 4px -1px rgba(179,179,179,0.62);
 }
 
 .todos__no-tasks-icon {

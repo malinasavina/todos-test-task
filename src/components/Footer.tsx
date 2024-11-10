@@ -1,9 +1,14 @@
+import React from 'react';
+
 import Button from './Button';
 
-export default function Footer() {
+const Footer: React.FC<{itemsCount: number}> = (props) => {
+    const countNoun = props.itemsCount !== 1 ? 'tasks' : 'task';
+    const countText = `${props.itemsCount} ${countNoun} left`;
+
     return(
         <footer className="todos__tasks-footer">
-            <span className="todos__tasks-count">2 items left</span>
+            <span className="todos__tasks-count">{countText}</span>
             <div className="todos__tasks-filter">
                 <Button />
                 <Button />
@@ -13,3 +18,5 @@ export default function Footer() {
         </footer>
     )
 }
+
+export default Footer;

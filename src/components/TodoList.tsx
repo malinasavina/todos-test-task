@@ -7,7 +7,7 @@ const TodoList: React.FC<{items: Todo[]}> = (props) => {
     return (
         <div className="todos__tasks">
             <ul className="todos__tasks-list">
-                {props.items.map(item => <TodoItem index={item.id} taskText={item.text} />)}
+                {props.items.map(item => <TodoItem key={item.id} taskText={item.text} />)}
             </ul>
         </div>
     )
