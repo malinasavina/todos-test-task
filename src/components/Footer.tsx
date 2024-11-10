@@ -1,10 +1,12 @@
 import React from 'react';
 
 import Button from './Button';
+import Todo from "../models/todo";
 
-const Footer: React.FC<{itemsCount: number}> = (props) => {
+const Footer: React.FC<{itemsCount: number, onClearTodos: () => void}> = (props) => {
     const countNoun = props.itemsCount !== 1 ? 'tasks' : 'task';
     const countText = `${props.itemsCount} ${countNoun} left`;
+
 
     return(
         <footer className="todos__tasks-footer">
@@ -14,7 +16,7 @@ const Footer: React.FC<{itemsCount: number}> = (props) => {
                 <Button />
                 <Button />
             </div>
-            <button className="todos__tasks-clear">Clear completed</button>
+            <button className="todos__tasks-clear" onClick={props.onClearTodos}>Clear completed</button>
         </footer>
     )
 }

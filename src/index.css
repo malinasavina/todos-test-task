@@ -208,17 +208,8 @@ body {
 }
 
 .todos__task-text_checked {
-  position: relative;
+  /*text-decoration-line: overline;*/
   color: #d9d9d9;
-}
-
-.todos__task-text_checked::before {
-  position: absolute;
-  content: "";
-  height: 1px;
-  width: 100%;
-  background-color: #d9d9d9;
-  top: 53%;
 }
 
 .todos__tasks-footer {

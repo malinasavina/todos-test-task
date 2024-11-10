@@ -29,11 +29,16 @@ export default function Todos() {
         });
     }
 
+    const clearCompletedHandler = () => {
+        const remainingTodos = todos.filter(todo => todo.isCompleted === false);
+        setTodos(remainingTodos);
+    }
+
     return (
         <div className="todos">
             <NewTodo onAddTodo={addTodoHandler} />
             {todos.length === 0 ? <NoTodos /> : <TodoList items={todos} onTodoComplete={toggleTodoCompleted}/>}
-            {todos.length === 0 ? undefined : <Footer itemsCount={todos.length} />}
+            {todos.length === 0 ? undefined : <Footer itemsCount={todos.length} onClearTodos={clearCompletedHandler} />}
         </div>
     )
 }
