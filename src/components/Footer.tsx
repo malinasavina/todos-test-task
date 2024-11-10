@@ -3,10 +3,10 @@ import React from 'react';
 import Button from './Button';
 import Todo from "../models/todo";
 
-const Footer: React.FC<{itemsCount: number, onClearTodos: () => void}> = (props) => {
-    const countNoun = props.itemsCount !== 1 ? 'tasks' : 'task';
-    const countText = `${props.itemsCount} ${countNoun} left`;
-
+const Footer: React.FC<{items: Todo[], onClearTodos: () => void}> = (props) => {
+    const itemCount: number = props.items.filter(item => item.isCompleted === false).length;
+    const countNoun = itemCount !== 1 ? 'tasks' : 'task';
+    const countText = `${itemCount} ${countNoun} left`;
 
     return(
         <footer className="todos__tasks-footer">

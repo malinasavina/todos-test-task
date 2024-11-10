@@ -38,7 +38,7 @@ export default function Todos() {
         <div className="todos">
             <NewTodo onAddTodo={addTodoHandler} />
             {todos.length === 0 ? <NoTodos /> : <TodoList items={todos} onTodoComplete={toggleTodoCompleted}/>}
-            {todos.length === 0 ? undefined : <Footer itemsCount={todos.length} onClearTodos={clearCompletedHandler} />}
+            {todos.length === 0 ? undefined : <Footer items={todos} onClearTodos={clearCompletedHandler} />}
         </div>
     )
 }
