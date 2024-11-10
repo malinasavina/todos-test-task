@@ -3,6 +3,7 @@ import { useState } from 'react';
 import NewTodo from './NewTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
+import NoTodos from './NoTodos';
 
 import Todo from '../models/todo';
 
@@ -20,7 +21,7 @@ export default function Todos() {
     return (
         <div className="todos">
             <NewTodo onAddTodo={addTodoHandler} />
-            <TodoList items={todos} />
+            {todos.length === 0 ? <NoTodos /> : <TodoList items={todos} />}
             <Footer />
         </div>
     )
