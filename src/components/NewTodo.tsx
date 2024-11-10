@@ -20,7 +20,7 @@ const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
         <form className="todos__form" onSubmit={submitHandler}>
             <span className="todos__input-icon"></span>
             <input className="todos__input" placeholder="What needs to be done?" type="text" ref={taskTextInputRef}/>
-            <button className="todos__input-button">OK</button>
+            <button className="todos__input-button" type="submit">OK</button>
         </form>
     )
 }
