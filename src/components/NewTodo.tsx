@@ -6,13 +6,14 @@ const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
     function submitHandler(event: React.FormEvent) {
         event.preventDefault();
 
-        const enteredText = taskTextInputRef.current!.value;
+        let enteredText = taskTextInputRef.current!.value;
 
         if (enteredText.trim().length === 0) {
             return;
         }
 
         props.onAddTodo(enteredText);
+        taskTextInputRef.current!.value = '';
     }
 
     return (
