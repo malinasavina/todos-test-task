@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import TodoItem from './TodoItem';
-import Todo from '../models/todo';
+import { TodosContext } from '../store/todos-context';
 
-const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onTodoComplete: (id: string) => void}> = (
-    props
-) => {
-    const todoListFiltered = props.items.filter(props.filters[props.currentFilter as keyof typeof props.filters]);
+const TodoList: React.FC = () => {
+    const todosCtx = useContext(TodosContext);
+
+    const todoListFiltered = todosCtx.items.filter(todosCtx.filterMap[todosCtx.filter as keyof typeof todosCtx.filterMap]);
 
     const todoList = todoListFiltered
         .map(todo => {
@@ -15,7 +15,6 @@ const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onT
                           todoId={todo.id}
                           taskText={todo.text}
                           isCompleted={todo.isCompleted}
-                          onTodoComplete={props.onTodoComplete}
                 />
             )
         });

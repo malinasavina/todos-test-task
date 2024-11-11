@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const FilterButton: React.FC<{key: string, name: string, isPressed: boolean, setCurrentFilter: (currentFilter: string) => void}> = (
+import { TodosContext } from '../store/todos-context';
+
+const FilterButton: React.FC<{key: string, name: string, isPressed: boolean}> = (
     props
 ) => {
+    const todosCtx = useContext(TodosContext);
+
     let buttonClasses = 'todos__tasks-button';
 
     if (props.isPressed) {
@@ -13,7 +17,7 @@ const FilterButton: React.FC<{key: string, name: string, isPressed: boolean, set
         <button className={buttonClasses}
                 key={props.key}
                 aria-pressed={props.isPressed}
-                onClick={() => props.setCurrentFilter(props.name)}
+                onClick={() => todosCtx.filterTodos(props.name)}
         >
             {props.name}
         </button>

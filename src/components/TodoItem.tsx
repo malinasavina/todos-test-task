@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
- const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean, onTodoComplete: (id: string) => void}> = (
+import { TodosContext } from '../store/todos-context';
+
+const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean}> = (
      props
  ) => {
+    const todosCtx = useContext(TodosContext);
+
     let textClasses = 'todos__task-text';
 
     if (props.isCompleted) {
@@ -16,7 +20,7 @@ import React from 'react';
                 <input className="todos__task-input"
                        type="checkbox"
                        defaultChecked={props.isCompleted}
-                       onChange={() => props.onTodoComplete(props.todoId)}
+                       onChange={() => todosCtx.toggleTodoCompleted(props.todoId)}
                 />
                     <span className={textClasses}>{props.taskText}</span>
             </label>
