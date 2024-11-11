@@ -3,8 +3,10 @@ import React from 'react';
 import FilterButton from './FilterButton';
 import Todo from "../models/todo";
 
-const TodoFooter: React.FC<{items: Todo[], filters: string[], currentFilter: string, setCurrentFilter: (currentFilter: string) => void, onClearTodos: () => void}> = (props) => {
-    const itemCount: number = props.items.filter(item => item.isCompleted === false).length;
+const TodoFooter: React.FC<{items: Todo[], filters: string[], currentFilter: string, setCurrentFilter: (currentFilter: string) => void, onClearTodos: () => void}> = (
+    props
+) => {
+    const itemCount: number = props.items.filter(item => !item.isCompleted).length;
     const countNoun = itemCount !== 1 ? 'tasks' : 'task';
     const countText = `${itemCount} ${countNoun} left`;
 

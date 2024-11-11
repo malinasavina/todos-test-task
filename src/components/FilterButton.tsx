@@ -1,6 +1,8 @@
 import React from 'react';
 
-const FilterButton: React.FC<{key: string, name: string, isPressed: boolean, setCurrentFilter: (currentFilter: string) => void}> = (props) => {
+const FilterButton: React.FC<{key: string, name: string, isPressed: boolean, setCurrentFilter: (currentFilter: string) => void}> = (
+    props
+) => {
     let buttonClasses = 'todos__tasks-button';
 
     if (props.isPressed) {

@@ -3,7 +3,9 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import Todo from '../models/todo';
 
-const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onTodoComplete: (id: string) => void}> = (props) => {
+const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onTodoComplete: (id: string) => void}> = (
+    props
+) => {
     const todoListFiltered = props.items.filter(props.filters[props.currentFilter as keyof typeof props.filters]);
 
     const todoList = todoListFiltered

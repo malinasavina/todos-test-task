@@ -1,6 +1,8 @@
 import React from 'react';
 
- const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean, onTodoComplete: (id: string) => void}> = (props) => {
+ const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean, onTodoComplete: (id: string) => void}> = (
+     props
+ ) => {
     let textClasses = 'todos__task-text';
 
     if (props.isCompleted) {

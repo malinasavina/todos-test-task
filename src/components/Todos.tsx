@@ -18,7 +18,7 @@ export default function Todos() {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [filter, setFilter] = useState('All');
 
-    const toggleTodoCompleted = (id: string) => {
+    const toggleTodoCompletedHandler = (id: string) => {
         const updatedTodos = todos.map(todo => {
             if (id === todo.id) {
                 return {...todo, isCompleted: !todo.isCompleted}
@@ -38,7 +38,7 @@ export default function Todos() {
     }
 
     const clearCompletedHandler = () => {
-        const remainingTodos = todos.filter(todo => todo.isCompleted === false);
+        const remainingTodos = todos.filter(todo => !todo.isCompleted);
         setTodos(remainingTodos);
     }
 
@@ -53,7 +53,7 @@ export default function Todos() {
                 <TodoList items={todos}
                           filters={FILTER_MAP}
                           currentFilter={filter}
-                          onTodoComplete={toggleTodoCompleted}/>
+                          onTodoComplete={toggleTodoCompletedHandler}/>
             )}
             {todos.length > 0 && (
                 <TodoFooter items={todos}
