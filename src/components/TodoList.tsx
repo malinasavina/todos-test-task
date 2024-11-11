@@ -4,8 +4,9 @@ import TodoItem from './TodoItem';
 import Todo from '../models/todo';
 
 const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onTodoComplete: (id: string) => void}> = (props) => {
-    const todoList = props.items
-        .filter(props.filters[props.currentFilter as keyof typeof props.filters])
+    const todoListFiltered = props.items.filter(props.filters[props.currentFilter as keyof typeof props.filters]);
+
+    const todoList = todoListFiltered
         .map(todo => {
             return (
                 <TodoItem key={todo.id}
@@ -20,7 +21,7 @@ const TodoList: React.FC<{items: Todo[], currentFilter: string, filters: {}, onT
     return (
         <div className="todos__tasks">
             <ul className="todos__tasks-list">
-                {todoList}
+                {todoListFiltered.length === 0 ? <p className="todos__no-filtered">No available tasks</p> : todoList}
             </ul>
         </div>
     )

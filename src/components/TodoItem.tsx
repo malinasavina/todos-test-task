@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from "../models/todo";
 
  const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean, onTodoComplete: (id: string) => void}> = (props) => {
     let textClasses = 'todos__task-text';
@@ -7,6 +6,7 @@ import Todo from "../models/todo";
     if (props.isCompleted) {
         textClasses += ' todos__task-text_checked';
     }
+
     return(
         <li className="todos__task" key={props.key}>
             <label className="todos__task-label">
