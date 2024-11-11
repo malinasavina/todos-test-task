@@ -175,28 +175,6 @@ body {
   border-radius: 50%;
 }
 
-/* .todos__task-check::before {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 2px;
-  background-color: tomato;
-  transform: translate(-50%, -50%);
-} */
-
-/* .todos__task-check::after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 2px;
-  background-color: cyan;
-  transform: translate(-50%, -50%);
-} */
-
 /* Checked */
 .todos__task-check:has(+ .todos__task-input:checked) {
   border: 1px solid #9e9e9e;
@@ -285,11 +263,8 @@ body {
   margin-bottom: 20px;
   width: 120px;
   height: 120px;
-}
-
-.todos__no-tasks-svg {
-  width: 100%;
-  height: 100%;
+  background-image: url('./assets/notebook.svg');
+  background-size: contain;
 }
 
 .todos__no-tasks-text {
