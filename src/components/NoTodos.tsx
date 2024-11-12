@@ -1,10 +1,14 @@
-export default function NoTodos() {
+import classes from './NoTodos.module.css';
+
+const NoTodos = () => {
     return(
-        <div className="todos__no-tasks">
-            <span className="todos__no-tasks-icon"></span>
-            <p className="todos__no-tasks-text">
+        <div className={classes.wrapper}>
+            <span className={classes.icon}></span>
+            <p className={classes.paragraph}>
                 It seems like you don't have anything planned yet...
             </p>
         </div>
     )
 }
+
+export default NoTodos;

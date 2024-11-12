@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from 'react';
 
+import classes from './NewTodo.module.css';
 import { TodosContext } from '../store/todos-context';
 
 const NewTodo: React.FC = () => {
@@ -21,10 +22,10 @@ const NewTodo: React.FC = () => {
     }
 
     return (
-        <form className="todos__form" onSubmit={submitHandler}>
-            <span className="todos__input-icon"></span>
-            <input className="todos__input" placeholder="What needs to be done?" type="text" ref={taskTextInputRef}/>
-            <button className="todos__input-button" type="submit">OK</button>
+        <form className={classes.form} onSubmit={submitHandler}>
+            <span className={classes.icon}></span>
+            <input className={classes.input} placeholder="What needs to be done?" type="text" ref={taskTextInputRef}/>
+            <button className={classes.button} type="submit">OK</button>
         </form>
     )
 }

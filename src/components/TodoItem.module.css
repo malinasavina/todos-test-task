@@ -1,0 +1,52 @@
+.todo {
+    padding: 15px;
+}
+
+.todo:not(:last-child) {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.label:hover .checkbox {
+    cursor: pointer;
+    border: 1px solid #9e9e9e;
+}
+
+.input {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    margin-right: 15px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+}
+
+/* Checked */
+.checkbox:has(+ .input:checked) {
+    border: 1px solid #9e9e9e;
+    background-image: url('../assets/check.svg');
+    background-position: center;
+}
+
+.text {
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.checked {
+    /*text-decoration-line: overline;*/
+    color: #d9d9d9;
+}

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 
 import TodoItem from './TodoItem';
+import classes from './TodoList.module.css';
+
 import { TodosContext } from '../store/todos-context';
 
 const TodoList: React.FC = () => {
@@ -20,11 +22,9 @@ const TodoList: React.FC = () => {
         });
 
     return (
-        <div className="todos__tasks">
-            <ul className="todos__tasks-list">
-                {todoListFiltered.length === 0 ? <p className="todos__no-filtered">No available tasks</p> : todoList}
-            </ul>
-        </div>
+        <ul className={classes.list}>
+            {todoListFiltered.length === 0 ? <p className={classes.message}>No available tasks</p> : todoList}
+        </ul>
     )
 }
 

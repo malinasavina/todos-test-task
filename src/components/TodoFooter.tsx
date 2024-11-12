@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import FilterButton from './FilterButton';
+import classes from './TodoFooter.module.css';
 import { TodosContext } from '../store/todos-context';
 
 const TodoFooter: React.FC= () => {
@@ -18,12 +19,12 @@ const TodoFooter: React.FC= () => {
     });
 
     return(
-        <footer className="todos__tasks-footer">
-            <span className="todos__tasks-count">{countText}</span>
-            <div className="todos__tasks-filter">
+        <footer className={classes.footer}>
+            <span>{countText}</span>
+            <div>
                 {filterList}
             </div>
-            <button className="todos__tasks-clear" onClick={todosCtx.clearCompleted}>Clear completed</button>
+            <button className={classes.button} onClick={todosCtx.clearCompleted}>Clear completed</button>
         </footer>
     )
 }

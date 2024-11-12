@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 24px;
+    font-weight: 300;
+    color: #4d4d4d;
+    background-color: #e9d9d8;
+}
+
+.icon {
+    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+    background-image: url('../assets/notebook.svg');
+    background-size: contain;
+}
+
+.paragraph {
+    text-align: center;
+}

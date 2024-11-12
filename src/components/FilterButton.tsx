@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import classes from './FilterButton.module.css';
 import { TodosContext } from '../store/todos-context';
 
 const FilterButton: React.FC<{key: string, name: string, isPressed: boolean}> = (
@@ -7,14 +8,8 @@ const FilterButton: React.FC<{key: string, name: string, isPressed: boolean}> = 
 ) => {
     const todosCtx = useContext(TodosContext);
 
-    let buttonClasses = 'todos__tasks-button';
-
-    if (props.isPressed) {
-        buttonClasses += ' todos__tasks-button_active'
-    }
-
     return (
-        <button className={buttonClasses}
+        <button className={props.isPressed ? `${classes.button} ${classes.active}` : classes.button}
                 key={props.key}
                 aria-pressed={props.isPressed}
                 onClick={() => todosCtx.filterTodos(props.name)}

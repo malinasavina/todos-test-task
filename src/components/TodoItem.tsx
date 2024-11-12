@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import classes from './TodoItem.module.css';
 import { TodosContext } from '../store/todos-context';
 
 const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompleted: boolean}> = (
@@ -7,22 +8,16 @@ const TodoItem: React.FC<{taskText: string, key: string, todoId: string, isCompl
  ) => {
     const todosCtx = useContext(TodosContext);
 
-    let textClasses = 'todos__task-text';
-
-    if (props.isCompleted) {
-        textClasses += ' todos__task-text_checked';
-    }
-
     return(
-        <li className="todos__task" key={props.key}>
-            <label className="todos__task-label">
-                <span className="todos__task-check"></span>
-                <input className="todos__task-input"
+        <li className={classes.todo} key={props.key}>
+            <label className={classes.label}>
+                <span className={classes.checkbox}></span>
+                <input className={classes.input}
                        type="checkbox"
                        defaultChecked={props.isCompleted}
                        onChange={() => todosCtx.toggleTodoCompleted(props.todoId)}
                 />
-                    <span className={textClasses}>{props.taskText}</span>
+                    <span className={props.isCompleted ? `${classes.text} ${classes.checked}` : classes.text}>{props.taskText}</span>
             </label>
         </li>
     )
