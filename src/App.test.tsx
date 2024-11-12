@@ -2,6 +2,28 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
+test('rendering all the main elements', () => {
+    render(<App />);
+
+    const input = screen.getByPlaceholderText('What needs to be done?');
+    const addButton = screen.getByText(/ok/i);
+
+    expect(input).toBeInTheDocument();
+    expect(addButton).toBeInTheDocument();
+    expect(screen.getByText(/it seems like you don't have anything planned yet/i)).toBeInTheDocument();
+
+    fireEvent.change(input, {target: {value: 'test task'}});
+    fireEvent.click(addButton);
+
+    expect(screen.getByText('test task')).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', {name: 'test task'})).toBeInTheDocument();
+    expect(screen.getByText('1 task left')).toBeInTheDocument();
+    expect(screen.getByText('All')).toBeInTheDocument();
+    expect(screen.getByText('Active')).toBeInTheDocument();
+    expect(screen.getByText('Completed')).toBeInTheDocument();
+    expect(screen.getByText('Clear completed')).toBeInTheDocument();
+});
+
 test('adding a new task', () => {
     render(<App />);
 
@@ -75,8 +97,8 @@ test('filtering all tasks', () => {
     const taskCheckbox = screen.getByRole('checkbox', {name: 'test task: completed'});
     fireEvent.click(taskCheckbox);
 
-    const completedFilter = screen.getByText('All');
-    fireEvent.click(completedFilter);
+    const allTasksFilter = screen.getByText('All');
+    fireEvent.click(allTasksFilter);
 
     expect(screen.getByText('test task: completed')).toBeInTheDocument();
     expect(screen.getByText('test task: active')).toBeInTheDocument();
@@ -119,8 +141,8 @@ test('filtering active tasks', () => {
     const taskCheckbox = screen.getByRole('checkbox', {name: 'test task: completed'});
     fireEvent.click(taskCheckbox);
 
-    const completedFilter = screen.getByText('Active');
-    fireEvent.click(completedFilter);
+    const activeFilter = screen.getByText('Active');
+    fireEvent.click(activeFilter);
 
     expect(screen.getByText('test task: active')).toBeInTheDocument();
     expect(screen.queryByText('test task: completed')).not.toBeInTheDocument();
@@ -144,4 +166,33 @@ test('counting active tasks', () => {
     fireEvent.click(taskCheckbox);
 
     expect(screen.getByText('1 task left')).toBeInTheDocument();
+});
+
+test('checking "no available tasks" message', () => {
+   render(<App />);
+
+    const input = screen.getByPlaceholderText('What needs to be done?');
+    const addButton = screen.getByText(/ok/i);
+
+    fireEvent.change(input, {target: {value: 'test task 1'}});
+    fireEvent.click(addButton);
+
+    fireEvent.change(input, {target: {value: 'test task 2'}});
+    fireEvent.click(addButton);
+
+    const completedFilter = screen.getByText('Completed');
+    fireEvent.click(completedFilter);
+
+    expect(screen.getByText(/no available tasks/i));
+
+    const activeFilter = screen.getByText('Active');
+    fireEvent.click(activeFilter);
+
+    const firstTaskCheckbox = screen.getByRole('checkbox', {name: 'test task 1'});
+    fireEvent.click(firstTaskCheckbox);
+
+    const secondTaskCheckbox = screen.getByRole('checkbox', {name: 'test task 2'});
+    fireEvent.click(secondTaskCheckbox);
+
+    expect(screen.getByText(/no available tasks/i));
 });
