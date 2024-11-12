@@ -13,11 +13,6 @@
     cursor: pointer;
 }
 
-.label:hover .checkbox {
-    cursor: pointer;
-    border: 1px solid #9e9e9e;
-}
-
 .input {
     position: absolute;
     -webkit-appearance: none;
@@ -34,7 +29,6 @@
     border-radius: 50%;
 }
 
-/* Checked */
 .checkbox:has(+ .input:checked) {
     border: 1px solid #9e9e9e;
     background-image: url('../assets/check.svg');
@@ -47,6 +41,12 @@
 }
 
 .checked {
-    /*text-decoration-line: overline;*/
     color: #d9d9d9;
+}
+
+@media screen and (min-width: 430px) {
+    .label:hover .checkbox {
+        cursor: pointer;
+        border: 1px solid #9e9e9e;
+    }
 }

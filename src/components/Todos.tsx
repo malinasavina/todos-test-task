@@ -8,7 +8,7 @@ import classes from './Todos.module.css';
 
 import { TodosContext } from '../store/todos-context';
 
-export default function Todos() {
+const Todos = () => {
     const todosCtx = useContext(TodosContext);
 
     return (
@@ -19,3 +19,5 @@ export default function Todos() {
         </div>
     )
 }
+
+export default Todos;

@@ -63,3 +63,9 @@
     color: #4d4d4d;
     cursor: pointer;
 }
+
+@media screen and (min-width: 430px) {
+    .button:hover {
+        background-color: #eee2e1;
+    }
+}

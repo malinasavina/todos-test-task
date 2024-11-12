@@ -1,29 +1,7 @@
 .todos {
     position: relative;
-    width: 500px;
+    width: 100%;
     background-color: #fff;
     box-shadow: 0 2px 4px 1px rgba(68,68,68,0.4);
     z-index: 500;
 }
-
-/* .todos::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 98%;
-  height: 5px;
-  background-color: #F6F6F6;
-}
-
-.todos::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 96%;
-  height: 5px;
-  background-color: #F6F6F6;
-} */

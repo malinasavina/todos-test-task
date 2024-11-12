@@ -20,8 +20,8 @@ const TodoFooter: React.FC= () => {
 
     return(
         <footer className={classes.footer}>
-            <span>{countText}</span>
-            <div>
+            <span className={classes.counter}>{countText}</span>
+            <div className={classes.filters}>
                 {filterList}
             </div>
             <button className={classes.button} onClick={todosCtx.clearCompleted}>Clear completed</button>
